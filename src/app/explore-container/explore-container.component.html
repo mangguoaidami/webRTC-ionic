@@ -1,5 +1,11 @@
 <div id="container" [ngStyle]="{'background-color': colors}">
   <strong class="context">{{ name }} {{ colors }}</strong>
   <p>开始你的 <a target="_blank" rel="noopener noreferrer" (click)="gotoWebRTC()" class="webRTCText">视频会议</a></p>
-  <a href="" (click)="linkNewVideo()">新建房间666</a>
+  <!-- <a href="" (click)="linkNewVideo()">新建房间666</a>
+  <a href="" (click)="viewVideo()">view video</a>
+  <a href="" (click)="listen()">listen</a> -->
+  输入房间号：
+  <input id="room-id" name="room-id" type="text" value="123" placeholder="请输入房间号">
+  <button id="btn-open-room" style="margin-bottom: 2rem;">创建房间</button>
+<button id="btn-join-room">加入房间</button><hr>
 </div>
