@@ -1,0 +1,22 @@
+<ion-toolbar>
+  <ion-buttons slot="secondary">
+    <ion-button>
+      创建房间
+    </ion-button>
+  </ion-buttons>
+  <ion-buttons slot="primary">
+    <ion-button color="danger">
+      加入会议
+    </ion-button>
+  </ion-buttons>
+  <ion-title>500kV变压器收会议</ion-title>
+</ion-toolbar>
+
+<ion-list>
+  <ion-item *ngFor="let item of items">
+    <ion-thumbnail slot="start">
+      <ion-img [src]="item.src" class="user_items"></ion-img>
+    </ion-thumbnail>
+    <ion-label>{{item.text}}</ion-label>
+  </ion-item>
+</ion-list>

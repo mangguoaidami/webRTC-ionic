@@ -1,0 +1,8 @@
+{
+  "name": "myFirstAppa",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}
