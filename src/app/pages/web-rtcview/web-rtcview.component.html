@@ -1,22 +1,103 @@
-<ion-toolbar>
-  <ion-buttons slot="secondary">
-    <ion-button>
-      创建房间
-    </ion-button>
-  </ion-buttons>
-  <ion-buttons slot="primary">
-    <ion-button color="danger">
-      加入会议
-    </ion-button>
-  </ion-buttons>
-  <ion-title>500kV变压器收会议</ion-title>
-</ion-toolbar>
+<!-- <ion-header>
+  <ion-toolbar>
 
-<ion-list>
-  <ion-item *ngFor="let item of items">
-    <ion-thumbnail slot="start">
-      <ion-img [src]="item.src" class="user_items"></ion-img>
-    </ion-thumbnail>
-    <ion-label>{{item.text}}</ion-label>
-  </ion-item>
-</ion-list>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>会议详情</ion-title>
+    <ion-button slot="end">
+
+    </ion-button>
+
+  </ion-toolbar>
+
+</ion-header> -->
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="home"></ion-back-button>
+    </ion-buttons>
+    <ion-title>会议详情</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content  class="contener">
+  
+  <ion-list class="conference_list">
+    <ion-item-sliding>
+      <div class="conference_itemTitle">
+        <p class="h4">200330-500kV变压器出厂签收会议</p>
+        <div class="conference_itemContent">
+          <div class="conference_itemContentinnerhead">
+            <div class="conference_avatar">
+              <img src="./../../../assets/icon/initCAvatar.png">
+            <p>张京华</p>
+            </div>
+            
+            <div class="conference_words">
+              <p class="ri">已有3份文档</p>
+            </div>
+          </div>
+          <div class="innercon">
+            <div class="le_text">
+              <h2>16:00</h2>
+              <p>2020年4月3日</p>
+            </div>
+            <div class="mid_text">
+              <div class="le_bar"></div>
+              <div class="ri_bar"></div>
+              <p class="time">1小时30分</p>
+              <p class="start">待开始</p>
+            </div>
+            <div class="ri_text">
+              <h2>17:30</h2>
+              <p>2020年4月3日</p>
+            </div>
+          </div>
+        </div>
+        <div class="conference_itemFooter">
+          <p>会议号</p>
+          <p>682 689 996</p>
+        </div>
+      </div>
+      
+    </ion-item-sliding>
+  
+  </ion-list>
+
+  <div class="conference_peope">
+    <div class="title">
+      <p>参会人员 (3人)</p>
+    </div>
+    <div class="conference_peopeitem">
+      <div class="add">
+        <div class="add_boxer">
+          <img src="./../../../assets/icon/addPeope.png">
+        </div>
+        <p>添加人员</p>
+      </div>
+      <div class="right_list_peope">
+        <div class="peopeItem">
+          <div class="avatar">
+            <img src="./../../../assets/icon/avatar3.png">
+          </div>
+          <p>张京华</p>
+        </div>
+        <div class="peopeItem">
+          <div class="avatar">
+            <img src="./../../../assets/icon/avatar2.png">
+          </div>
+          <p>张京华</p>
+        </div>
+        <div class="peopeItem">
+          <div class="avatar">
+            <img src="./../../../assets/icon/initCAvatar.png">
+          </div>
+          <p>张京华</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+</ion-content>

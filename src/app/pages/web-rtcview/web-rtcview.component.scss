@@ -1,5 +1,216 @@
-.user_items{
-    width: 6.5rem;
-    height: 6.5rem;
-    display: block;
+
+.contener{
+    --ion-background-color:#F5F5F5;
+    .conference_list{
+        background-color: #fff;
+        margin-top: 1.3rem;
+        padding: 0 1.6rem;
+        .conference_itemTitle{
+            display: flex;
+            flex-direction: column;
+            .h4{
+                height: 3.8rem;
+                padding: 0;
+                margin: 0;
+                line-height: 3.8rem;
+                color: #595959;
+                font-size: 1.1rem;
+            }
+            .conference_itemContent{
+                border-top: 0.04rem solid rgba(217,217,217,1);
+                border-bottom: 1px solid rgba(217,217,217,1);
+                .conference_itemContentinnerhead{
+                    display: flex;
+                    flex-direction: row;
+                    height: 1.7rem;
+                    margin: 1.2rem 0;
+                    display: flex;
+                    justify-content: space-between;
+                    .conference_avatar{
+                        flex:1;
+                        display: flex;
+                        align-items: center;
+                        img{
+                            width: 1.7rem;
+                            height: 1.7rem;
+                            border-radius: 50%;
+                        overflow: hidden;
+                        }
+                        p{
+                            height:1.32rem;
+                            font-size:0.9rem;
+                            font-family:Microsoft YaHei;
+                            font-weight:400;
+                            line-height:1.32rem;
+                            color:rgba(89,89,89,1);
+                            margin: 0;
+                            padding: 0;
+                            margin-left: 0.4rem;
+                            
+                        }
+                    }
+
+                    .conference_words{
+                        flex:1;
+                        .ri{
+                            font-size: 0.9rem;
+                            margin: 0;
+                            padding: 0;
+                            text-align: right;
+                            color: #2D9670;
+                        }
+                    }
+                    
+                    
+                }
+                .innercon{
+                    display: flex;
+                    flex-direction: row;
+                    justify-content: space-between;
+                    padding-bottom: 0.7rem;
+                    .le_text, .ri_text{
+                        h2{
+                            height:2.39rem;
+                            --font-size:2rem;
+                            font-weight:400;
+                            line-height:2.39rem;
+                            color:rgba(89,89,89,1);
+                            margin: 0;
+                            padding: 0;
+                        }
+                        p{
+                            font-size:0.39rem;
+                            color:rgba(89,89,89,1);
+                            margin: 0;
+                            padding: 0;
+                        }
+                    }
+                    .mid_text{
+                        position: relative;
+                        .time{
+                            width:4.71rem;
+                            height:1.04rem;
+                            font-size:0.79rem;
+                            font-family:Microsoft YaHei;
+                            font-weight:400;
+                            line-height:1.04rem;
+                            color:rgba(45,150,112,1);
+                            background-color: #EDFCF4;
+                            text-align: center;
+                        }
+                        .start{
+                            width:3.36rem;
+                            height:1.07rem;
+                            font-size:0.79rem;
+                            font-family:Roboto;
+                            font-weight:400;
+                            line-height:0.96rem;
+                            color:rgba(255,108,96,1);
+                            padding: 0;
+                            margin: 0 auto;
+                            text-align: center;
+                            
+                        }
+                        .le_bar{
+                            width:2rem;
+                            height:0rem;
+                            border-bottom: 0.04rem solid rgba(217,217,217,1);
+                            position: absolute;
+                            left: -3rem;
+                            top: 1.2rem;
+                        }
+                        .ri_bar{
+                            width:2rem;
+                            height:0rem;
+                            border-bottom: 0.04rem solid rgba(217,217,217,1);
+                            position: absolute;
+                            right: -3rem;
+                            top: 1.2rem;
+                        }
+                    }
+                }
+            }
+            .conference_itemFooter{
+                display: flex;
+                flex-direction: row;
+                justify-content: space-between;
+            }
+            
+        }
+    }
+    .conference_peope{
+        background-color: #ffffff;
+        margin-top: 1rem;
+        padding: 1.29rem 1.43rem;
+        .title{
+            border-bottom: 1px solid rgba(217,217,217,1);
+            p{
+                margin-bottom: 1.25;
+                margin-top: 0;
+                padding: 0;
+            }
+        }
+        .conference_peopeitem{
+            display: flex;
+            padding-top: 1.4rem;
+            .add{
+                .add_boxer{
+                    width: 3.3rem;
+                    height: 3.3rem;
+                    background-color: #fff;
+                    border-radius: 50%;
+                    border: 1px solid rgba(217,217,217,1);
+                    align-items: center;
+                    justify-content: center;
+                    display: flex;
+                    
+                        img{
+                            width: 1.2rem;
+                            height: 1.2rem;
+                        }
+                }
+                p{
+                    font-size: 1rem;
+                    color: #595959;
+                    margin-top: 0.25rem;
+                            margin-bottom: 0;
+                }
+                
+            }
+            .right_list_peope{
+                display: flex;
+                flex: 1;
+                flex-direction: row-reverse;
+                .peopeItem{
+                    display: flex;
+                    width: 4rem;
+                    flex-direction: column;
+                    .avatar{
+                        width: 3.3rem;
+                        height: 3.3rem;
+                        border-radius: 50%;
+                        display: flex;
+                        overflow: hidden;
+                        background-color: #ccc;
+                        align-items: center;
+                        justify-content: center;
+                        img{
+                            width: 3.3rem;
+                            height: 3.3rem;
+                        }
+                    }
+                    p{
+                        font-size: 1rem;
+                        color: #595959;
+                        margin-top: 0.25rem;
+                                margin-bottom: 0;
+                    }
+                    
+                }
+            }
+           
+        }
+        
+    }
+    
 }
