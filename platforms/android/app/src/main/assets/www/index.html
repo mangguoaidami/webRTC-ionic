@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <title>CordovaApp using RTCMultiConnection</title>
+
+  <base href="/" />
+
+  <meta name="color-scheme" content="light dark" />
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="msapplication-tap-highlight" content="no" />
+
+  <link rel="icon" type="image/png" href="assets/icon/favicon.png" />
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  <style>
+    video{
+      width: 120px;
+    height: 120px;
+    display: block;
+    position: relative;
+    float: left;
+    margin-right: 1rem;
+    }
+  </style>
+
+</head>
+
+<body>
+  <app-root></app-root>
+  
+  <script src="https://rtcmulticonnection.herokuapp.com/dist/RTCMultiConnection.min.js"></script>
+  <script src="https://rtcmulticonnection.herokuapp.com/socket.io/socket.io.js"></script>
+  <script>
+    window.onload=function(){
+      
+      var connection = new RTCMultiConnection();
+    
+    // this line is VERY_important
+    connection.socketURL = 'http://49.235.167.75:9001/';
+    // connection.socketURL = 'http://localhost:9001/';
+    
+    // if you want audio+video conferencing
+    connection.session = {
+        audio: true,
+        video: true
+    };
+    
+
+    connection.sdpConstraints.mandatory = {
+      OfferToReceiveAudio: true,
+      OfferToReceiveVideo: true
+  };
+
+  connection.onstream = function(event) {
+      document.body.appendChild( event.mediaElement );
+  };
+
+
+  /**
+   * // set this line to close room as soon as owner leaves
+   * 当房主离开后此房间关闭
+   * */
+  connection.autoCloseEntireSession = true;
+    
+  /**
+   * 
+   * 始终捕获视频。
+   * 其他成员关闭房间后房间对应的成员视频关闭。
+   * */
+  connection.dontCaptureUserMedia = false;
+
+
+/**
+ * 创建房间
+ * */
+  if(document.getElementById('btn-open-room')){
+    document.getElementById('btn-open-room').onclick = function() {
+      var predefinedRoomId = document.getElementById('room-id').value;
+      this.disabled = true;
+      connection.open( predefinedRoomId );
+      
+  };
+  };
+
+/**
+ * 加入房间
+ * */
+  document.getElementById('btn-join-room').onclick = function() {
+      var predefinedRoomId = document.getElementById('room-id').value;
+      this.disabled = true;
+      connection.join( predefinedRoomId )
+        
+  };
+
+/**
+ * 创建或加入房间
+ * */
+document.getElementById('btn-openorjoin-room').onclick = function() {
+      var predefinedRoomId = document.getElementById('room-id').value;
+      this.disabled = true;
+      connection.openOrJoin( predefinedRoomId );
+
+      
+        
+  };
+
+  /**
+   * 此方法允许您将前摄像头视频替换为后摄像头视频，或将视频替换为屏幕，或将旧的低质量视频替换为新的高质量视频。
+   * */
+  //   connection.replaceTrack({
+  // 	screen: true,
+  // 	oneway: true
+  // });
+
+
+  /**
+   * 判断房间是否满了
+   * */
+  //  connection.maxParticipantsAllowed = 3; // one-to-one
+  //  connection.onRoomFull = function(roomid) {
+  //   console.log('Room is full.');
+  // };
+
+
+  /**
+   * 设置可加入我的房间人数
+   * */
+   document.getElementById('set-max-peope-room').onclick = function() {
+      var predefinedRoomId = document.getElementById('room-max-peope-id').value;
+      this.disabled = true;
+      connection.maxParticipantsAllowed = predefinedRoomId;
+      
+        
+  };
+  /**
+   * onMediaError
+   * */
+  connection.onMediaError = function(error) {
+	  alert( 'onMediaError:\n' + JSON.stringify(error) );
+  };
+
+
+  /**
+   * closeSocket close-socket
+   * */
+   document.getElementById('close-socket').onclick = function() {
+     console.log('离开房间')
+    // connection.closeEntireSession();
+
+
+    // // or before leaving a page
+    // connection.closeBeforeUnload = false;
+    // window.onbeforeunlaod = function() {
+    //     connection.closeEntireSession();
+    // };
+
+    // connection.closeSocket(); // close socket.io connections
+
+    // disconnect with all users
+    connection.getAllParticipants().forEach(function(pid) {
+        connection.disconnectWith(pid);
+    });
+
+    // stop all local cameras
+    connection.attachStreams.forEach(function(localStream) {
+        localStream.stop();
+    });
+
+    // close socket.io connection
+    connection.closeSocket();
+      
+        
+  };
+   
+   
+
+
+  
+
+
+  
+  }
+  
+  </script>
+<script src="runtime-es2015.js" type="module"></script><script src="runtime-es5.js" nomodule defer></script><script src="polyfills-es5.js" nomodule defer></script><script src="polyfills-es2015.js" type="module"></script><script src="styles-es2015.js" type="module"></script><script src="styles-es5.js" nomodule defer></script><script src="cordova.js" defer></script><script src="vendor-es2015.js" type="module"></script><script src="vendor-es5.js" nomodule defer></script><script src="main-es2015.js" type="module"></script><script src="main-es5.js" nomodule defer></script></body>
+
+</html>
